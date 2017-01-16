@@ -19,6 +19,6 @@ struct coordinates
 };
 
 struct coordinates long_lat_to_lambert(double lon, double lat);
-struct point lambert_to_xy_img(struct coordinates lambert, unsigned long int x, unsigned long int y);
+struct point lambert_to_xy_img(struct coordinates lambert);
 
 #endif //_CONVERSION_H

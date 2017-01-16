@@ -18,7 +18,7 @@ struct coordinates long_lat_to_lambert(double lon, double lat)
 
 /*LIRE LES VARIABLES DE REF !!!*/
 
-struct point lambert_to_xy_img(struct coordinates point, unsigned long int x, unsigned long int y)
+struct point lambert_to_xy_img(struct coordinates point)
 {
     struct point img;
     struct coordinates lambert_one, lambert_two;
@@ -26,14 +26,15 @@ struct point lambert_to_xy_img(struct coordinates point, unsigned long int x, un
     lambert_one.x = 648522;
     lambert_one.y = 6670399;
 
-
 /* A MODIFIER AUTO */
 
-    x = 11982;
-    y = 12973;
+    int x = 11982;
+    int y = 12973;
 
     img.x = x * (point.x - lambert_one.x) / (lambert_two.x - lambert_one.x);
     img.y = -y * (point.y - lambert_one.y) / (lambert_one.y - lambert_two.y);
+
+    printf("%lu\n%lu\n", img.x, img.y);
 
     return img;
 }

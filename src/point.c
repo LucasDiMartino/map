@@ -1,5 +1,7 @@
 #include "../inc/point.h"
 
+#include <gtk/gtk.h>
+
 struct point point_init(unsigned long int date, unsigned long int x, unsigned long int y)
 {
     struct point new_point;

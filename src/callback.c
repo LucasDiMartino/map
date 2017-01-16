@@ -1,6 +1,8 @@
 #include "../inc/callback.h"
 #include "../inc/gui.h"
 
+#include "../inc/file.h"
+
 extern char *logs;
 extern int window_map;
 
@@ -48,8 +50,6 @@ void cb_open_map(GtkWidget *p_widget, gpointer user_data)
             {
                  cb_open_logs(p_widget, user_data);
             }
-
-            //draw_on_image();
         }
 
         g_free(file_name);
@@ -78,7 +78,9 @@ void cb_open_logs(GtkWidget *p_widget, gpointer user_data)
         if(logs)
         {
             gtk_widget_destroy(dialog_window);
-            g_print("%s\n", logs);
+
+            read_data(logs);
+
             g_free(logs);
 
             if(window_map == 0)
