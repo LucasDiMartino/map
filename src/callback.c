@@ -1,7 +1,6 @@
 #include "../inc/callback.h"
 #include "../inc/gui.h"
 
-extern my_GtkMap map;
 extern char *logs;
 extern int window_map;
 
@@ -49,6 +48,8 @@ void cb_open_map(GtkWidget *p_widget, gpointer user_data)
             {
                  cb_open_logs(p_widget, user_data);
             }
+
+            //draw_on_image();
         }
 
         g_free(file_name);
@@ -104,4 +105,26 @@ void cb_about(GtkWidget *p_widget, gpointer user_data)
 
     (void)user_data;
     (void)p_widget;
+}
+
+void cb_image_annotate(GtkImageViewer *imgv, GdkPixbuf *pixbuf, gint shift_x, gint shift_y, gdouble scale_x, gdouble scale_y, gpointer user_data)
+{
+    int img_width = gdk_pixbuf_get_width(pixbuf);
+    int img_height = gdk_pixbuf_get_height(pixbuf);
+
+    cairo_surface_t *surface = cairo_image_surface_create_for_data(gdk_pixbuf_get_pixels(pixbuf), CAIRO_FORMAT_RGB24, img_width, img_height, gdk_pixbuf_get_rowstride(pixbuf));
+    cairo_t *cr = cairo_create (surface);
+    cairo_translate(cr, -shift_x, -shift_y);
+    cairo_scale(cr, scale_x, scale_y);
+
+    cairo_set_source_rgba (cr, 0,0,1.0,0.6);
+    cairo_set_line_width(cr, 3);
+    cairo_arc(cr, 266.0, 267.0, 12, 0.0, 2*G_PI);
+    cairo_stroke(cr);
+
+    cairo_surface_destroy(surface);
+    cairo_destroy(cr);
+
+    (void)imgv;
+    (void)user_data;
 }

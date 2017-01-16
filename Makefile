@@ -20,7 +20,7 @@ $(EXEC): $(OBJ)
 
 
 $(OBJDIR)/main.o: $(INCDIR)/gui.h $(SRCDIR)/gui.c $(INCDIR)/menu.h $(SRCDIR)/menu.c
-$(OBJDIR)/gui.o: $(INCDIR)/callback.h $(SRCDIR)/callback.c $(INCDIR)/widget.h $(SRCDIR)/widget.c $(INCDIR)/struct_widget.h
+$(OBJDIR)/gui.o: $(INCDIR)/callback.h $(SRCDIR)/callback.c $(INCDIR)/widget.h $(SRCDIR)/widget.c $(INCDIR)/gtk-image-viewer.h $(SRCDIR)/gtk-image-viewer-fixed.c $(INCDIR)/gtk-image-viewer-private.h
 $(OBJDIR)/callback.o: $(INCDIR)/widget.h $(SRCDIR)/widget.c $(INCDIR)/gui.h $(SRCDIR)/gui.c
 $(OBJDIR)/menu.o: $(INCDIR)/callback.h $(SRCDIR)/callback.c
 

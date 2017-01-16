@@ -2,7 +2,6 @@
 #define _GUI_H
 
 #include "callback.h"
-#include "struct_widget.h"
 
 #include <gtk/gtk.h>
 
