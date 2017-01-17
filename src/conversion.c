@@ -26,15 +26,16 @@ struct point lambert_to_xy_img(struct coordinates point)
     lambert_one.x = 648522;
     lambert_one.y = 6670399;
 
+    lambert_two.x = 658192;
+    lambert_two.y = 6659791;
+
 /* A MODIFIER AUTO */
 
-    int x = 11982;
-    int y = 12973;
+    unsigned long int x = 11982;
+    unsigned long int y = 12973;
 
     img.x = x * (point.x - lambert_one.x) / (lambert_two.x - lambert_one.x);
     img.y = -y * (point.y - lambert_one.y) / (lambert_one.y - lambert_two.y);
-
-    printf("%lu\n%lu\n", img.x, img.y);
 
     return img;
 }
