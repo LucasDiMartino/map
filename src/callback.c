@@ -6,6 +6,8 @@
 extern char *logs;
 extern int window_map;
 
+struct dll_point header;
+
 void cb_quit(GtkWidget *p_widget, gpointer user_data)
 {
     gtk_main_quit();
@@ -119,11 +121,22 @@ void cb_image_annotate(GtkImageViewer *imgv, GdkPixbuf *pixbuf, gint shift_x, gi
     cairo_translate(cr, -shift_x, -shift_y);
     cairo_scale(cr, scale_x, scale_y);
 
+    
+
     cairo_set_source_rgba (cr, 0,0,1.0,0.6);
     cairo_set_line_width(cr, 3);
-    cairo_arc(cr, 266.0, 267.0, 12, 0.0, 2*G_PI);
-    cairo_stroke(cr);
 
+    struct node_point *p_node = header.first;
+
+    while(p_node)
+    {
+        
+        cairo_arc(cr, p_node->current.x, p_node->current.y, 12, 0.0, 2*G_PI);
+        cairo_stroke(cr);
+
+        p_node = p_node->next;
+    }
+    
     cairo_surface_destroy(surface);
     cairo_destroy(cr);
 
