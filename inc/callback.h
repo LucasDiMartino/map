@@ -1,3 +1,12 @@
+/**
+ * INSA CVL Bourges
+ *
+ * Ce fichier est l'oeuvre d'eleves de l'INSA CVL de Bourges. Il ne peut etre
+ * reproduit, ou modifie sans l'avis express de ses auteurs.
+ *
+ * @author DI MARTINO Lucas <lucas.di_martino-cvl.fr>
+ **/
+
 #ifndef _CALLBACK_H_
 #define _CALLBACK_H
 

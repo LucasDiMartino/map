@@ -1,3 +1,12 @@
+/**
+ * INSA CVL Bourges
+ *
+ * Ce fichier est l'oeuvre d'eleves de l'INSA CVL de Bourges. Il ne peut etre
+ * reproduit, ou modifie sans l'avis express de ses auteurs.
+ *
+ * @author DI MARTINO Lucas <lucas.di_martino-cvl.fr>
+ **/
+
 #include "../inc/menu.h"
 
 static void menu_item_new(GtkMenu *p_menu, const gchar *title, GCallback callback, gpointer user_data)
